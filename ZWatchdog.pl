@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 
 # ZWatchdog.pl -- A perl-script/-daemon at looks at Zope's Memory usage and restarts it if too big.
-# "Copyright (c) Oliver Pitzeier, January 2002"
+# Copyright (c) Oliver Pitzeier, January 2002
 #                 o.pitzeier@uptime.at
+# Licese: Free Distributable
 #
 # This script was written for our customers.
 #
 # Changes are welcome, but please inform me about those changes!
-#
 
 # Thing we use int this script.
 use strict;
@@ -98,10 +98,10 @@ This script can be obtained at http://vivi.uptime.at/~oliver/PAUSE/ or at CPAN.
 
 =head1 LICENSE
 
-This script has been developed under GPL.
+Free Distributable
 
 =head1 AUTHOR
 
-Oliver Pitzeier, oliver@uptime.at
+Oliver Pitzeier, o.pitzeier@uptime.at
 
 =cut

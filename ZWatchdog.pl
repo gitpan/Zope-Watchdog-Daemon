@@ -1,13 +1,14 @@
 #!/usr/bin/perl
 
-# ZWatchdog.pl -- A perl-script/-daemon at looks at Zope's Memory usage and restarts it if too big.
-# Copyright (c) Oliver Pitzeier, January 2002
-#                 o.pitzeier@uptime.at
+# ZWatchdog.pl -- A perl-script/-daemon that looks at Zope's
+#                 Memory usage and restarts it if too big.
+# Copyright (c) Oliver Falk, 2002-2005
+#               oliver@linux-kernel.at
 # Licese: Free Distributable
 #
 # This script was written for our customers.
 #
-# Changes are welcome, but please inform me about those changes!
+# Changes are welcome, but please inform me about those!
 
 # Thing we use int this script.
 use strict;
@@ -17,7 +18,7 @@ use Getopt::Long;
 
 # Define some values... Those variables are use in the script as well!
 my $PROGNAME = "Zope Watchdog Daemon";
-my $VERSION  = 2.0;
+my $VERSION  = 2.1;
 my $AUTHOR   = "Oliver Pitzeier";
 
 # Define the default options
@@ -41,10 +42,10 @@ my $result = GetOptions("zope|z=s"           => \$zope,
 sub do_watch {
     my $watch_limit=shift;
     my $watch_zopedir=shift;
-    my $commandline="ps auxw | grep python | awk -v limit=$watch_limit -v zopedir=$watch_zopedir '{ if (\$5 > limit) { print \$2; exit 0; } }'";
+    my $commandline="ps auxw | grep python | grep $watch_zopedir | awk -v limit=$watch_limit '{ if (\$5 > limit) { print \$2; exit 0; } }'";
     open(my $pid, "$commandline |");
     if(<$pid>) {
-        system("logger Zope restart because of too much memory: greater than $limit");
+		system("logger Zope $watch_zopedir restart because of too much memory: greater than $limit");
         system("$restartcommand");
     };
     close($pid);

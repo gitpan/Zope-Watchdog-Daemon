@@ -1,4 +1,8 @@
-* Fri May 10 2002 Oliver Pitzeier <o.pitzeier@uptime.at> - version 2.0
+* Thu Jul 28 2005 Oliver Falk <oliver@linux-kernel.at>		- version 2.1
+- Integrate Dirk Datzert's <dirk@datzert.de> 'multi-instanz.patch'
+  Patch, for use with more than one Zope-Instance.
+
+* Fri May 10 2002 Oliver Pitzeier <o.pitzeier@uptime.at>	- version 2.0
 - Added this Changelog lines here
 - Changed the license from GPL to "Freely Distributable
   The license scheme has been change because of Freshmeat.
